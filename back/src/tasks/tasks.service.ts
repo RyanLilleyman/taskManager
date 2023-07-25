@@ -40,7 +40,7 @@ export class TasksService {
     if (search) {
       query.andWhere(
         'task.title LIKE :search OR task.description LIKE :search OR task.status = :status',
-        { search: `%%`, status },
+        { search: `%${search}%`, status },
       );
     }
 
@@ -58,68 +58,14 @@ export class TasksService {
   async deleteAllTasks(): Promise<void> {
     await this.taskRepository.delete({});
   }
+
+  async updateTask(
+    id: string,
+    updateTaskDto: UpdateTaskStatusDto,
+  ): Promise<Task> {
+    const task = await this.getTaskById(id);
+    task.status = updateTaskDto.status;
+    await this.taskRepository.save(task);
+    return task;
+  }
 }
-// getTasksWithFilters(filterDto: GetTasksFilterDto): Task[] {
-//   const { search, status } = filterDto;
-
-//   let tasks = this.getAllTasks();
-//   if (status) {
-//     tasks = tasks.filter((task) => task.status === status);
-//   }
-//   if (search) {
-//     return tasks.filter((task) => {
-//       if (
-//         task.title.toUpperCase().includes(search) ||
-//         task.description.toLowerCase().includes(search)
-//       ) {
-//         return true;
-//       }
-//       return false;
-//     });
-//   }
-//   return tasks;
-// }
-// createTask(createTaskDto: CreateTaskDto): Task {
-//   const { title, description } = createTaskDto;
-
-//   const task: Task = {
-//     id: uuid(),
-//     title,
-//     description,
-//     status: TaskStatus.OPEN,
-//   };
-
-//   this.tasks.push(task);
-
-//   return task;
-// }
-// private tasks: Task[] = [];
-
-// getAllTasks(): Task[] {
-//   return this.tasks;
-// }
-
-// getTasksById(id: string): Task {
-//   const found = this.tasks.find((task) => task.id === id);
-//   if (!found) {
-//     throw new NotFoundException(`Task with '${id}' not found.`);
-//   }
-//   return found;
-// }
-
-// deleteTasksById(id: string): void {
-//   const found = this.getTasksById(id);
-//   this.tasks = this.tasks.filter((task) => task.id !== found.id);
-// }
-
-// updateTask(id: string, updateTaskDto: UpdateTaskStatusDto): Task {
-//   const { status } = updateTaskDto;
-
-//   const toUpdateTask = this.getTasksById(id);
-//   toUpdateTask.status = status;
-
-//   this.deleteTasksById(id);
-//   this.tasks.push(toUpdateTask);
-
-//   return toUpdateTask;
-// }

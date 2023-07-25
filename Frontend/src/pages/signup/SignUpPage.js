@@ -3,7 +3,7 @@ import { Button, TextField } from '@material-ui/core';
 import styled from 'styled-components';
 
 import './SignUpPage.scss';
-import { inject } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 import ErrorMessage from '../../components/ErrorMessage';
 
 const Heading = styled.h1`
@@ -23,6 +23,7 @@ const FormField = styled(TextField)`
 `;
 
 @inject('userStore', 'routerStore')
+@observer
 class SignUpPage extends Component {
   constructor(props) {
     super(props);

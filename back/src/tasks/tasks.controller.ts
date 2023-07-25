@@ -34,8 +34,21 @@ export class TasksController {
     return this.tasksService.createTask(createTaskDto);
   }
 
+  @Patch('/:id/status')
+  updateTask(
+    @Param('id') id: string,
+    @Body() updateTaskDto: UpdateTaskStatusDto,
+  ): Promise<Task> {
+    return this.tasksService.updateTask(id, updateTaskDto);
+  }
+
   @Delete()
   deleteAllTasks(): Promise<void> {
     return this.tasksService.deleteAllTasks();
+  }
+
+  @Delete('/:id')
+  deleteTask(@Param('id') id: string): Promise<void> {
+    return this.tasksService.deleteTask(id);
   }
 }
