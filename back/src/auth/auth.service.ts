@@ -2,6 +2,7 @@ import {
   Injectable,
   InternalServerErrorException,
   ConflictException,
+  UnauthorizedException,
 } from '@nestjs/common';
 import { User } from './user.entity';
 import { Repository } from 'typeorm';
@@ -15,7 +16,6 @@ export class AuthService {
   constructor(
     @InjectRepository(User)
     private usersRepository: Repository<User>,
-    private authRepository: Repository<User>,
   ) {}
 
   async createUser(createUserDto: CreateUserDto): Promise<User> {
@@ -50,6 +50,8 @@ export class AuthService {
     const user = await this.usersRepository.findOne({ where: { username } });
     if (user && (await bcrypt.compare(password, user.password))) {
       return user.username;
+    } else {
+      throw new UnauthorizedException('Invalid credentials');
     }
   }
 }
