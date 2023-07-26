@@ -10,6 +10,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { TasksService } from './tasks.service';
+import { ConfigService } from '@nestjs/config';
 // import { Task } from './task.model';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
@@ -18,11 +19,18 @@ import { Task } from './task.entity';
 import { User } from 'src/auth/user.entity';
 import { AuthGuard } from '@nestjs/passport';
 import { GetUser } from 'src/auth/get-user.decorator';
+import { Logger } from '@nestjs/common';
 
 @Controller('tasks')
 @UseGuards(AuthGuard())
 export class TasksController {
-  constructor(private tasksService: TasksService) {}
+  private logger = new Logger('TasksController');
+  constructor(
+    private tasksService: TasksService,
+    private configService: ConfigService,
+  ) {
+    console.log(this.configService.get('TEST_VALUE'));
+  }
 
   @Get('/:id')
   getTasksById(@Param('id') id: string, @GetUser() user: User): Promise<Task> {
@@ -34,6 +42,7 @@ export class TasksController {
     @Query() filterDto: GetTasksFilterDto,
     @GetUser() user: User,
   ): Promise<Task[]> {
+    this.logger.verbose(`User "${user.username}" retrieving all tasks.`);
     return this.tasksService.getTasks(filterDto, user);
   }
 
