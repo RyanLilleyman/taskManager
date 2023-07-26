@@ -29,14 +29,17 @@ export class TasksService {
   }
 
   async getTaskById(id: string, user: User): Promise<Task> {
-    const query = this.taskRepository.createQueryBuilder('task');
-    query.where({ user });
+    const query = await this.taskRepository
+      .createQueryBuilder('task')
+      .where({ user })
+      .andWhere('task.id = :id', { id })
+      .getOne();
 
-    const found = await this.taskRepository.findOneBy({ id });
-    if (!found) {
+    if (!query) {
       throw new NotFoundException(`Task with id '${id}' not found.`);
+    } else {
+      return query;
     }
-    return found;
   }
 
   async getTasks(filterDto: GetTasksFilterDto, user: User): Promise<Task[]> {
@@ -61,9 +64,11 @@ export class TasksService {
   }
 
   async deleteTask(id: string, user: User): Promise<void> {
-    const result = await this.taskRepository.delete({ id });
-    if (result.affected === 0) {
+    const task = await this.getTaskById(id, user);
+    if (!task) {
       throw new NotFoundException(`Task with id '${id}' not found.`);
+    } else {
+      await this.taskRepository.delete(id);
     }
   }
 
