@@ -129,5 +129,4 @@ yarn add
 
 
 ## Contributing
-
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests.
+Feel free to fork the repo and submit a pull request!
