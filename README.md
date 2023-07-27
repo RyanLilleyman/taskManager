@@ -47,7 +47,7 @@ sudo docker run
 
 ##### Important Commands:
 To stop a docker container:
-``bash
+```bash
 sudo docker container stop <containerIDorName>
 ```
 To start a docker container:
