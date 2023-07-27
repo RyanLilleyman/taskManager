@@ -57,12 +57,14 @@ in the executable directory.
 8. Create a new server group. Name it whatever you want.
 ![Creation](https://github.com/RyanLilleyman/taskManager/blob/main/readmeResources/creation.gif)
 9. Register the servers. Again, name them whatever you want.
+![Registration](https://github.com/RyanLilleyman/taskManager/blob/main/readmeResources/registration.gif)
 10. Go to connection tab.
 11. Enter in relevant details. Save.
     - Host name/address: localhost
     - Port: Mine is 5432. For you, <NativePort>
     - maintenance database: From the command above, <YourDatabaseName>
     - password: From the command above, <YourDatabasePassword>
+![Connection](https://github.com/RyanLilleyman/taskManager/blob/main/readmeResources/connect.gif)
 
 12. Install dependencies in both Frontend/ and Backend/ **( you must do this for both directories )**:
    
@@ -75,7 +77,20 @@ or
 ```bash
 yarn add
 ```
-13. 
+
+13. To start the server:
+   - navigate to /Backend
+   - Enter:
+     
+```bash
+yarn start:dev
+```
+or 
+
+```bash
+npm start:dev
+```
+
 
 
 
