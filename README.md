@@ -2,7 +2,8 @@
 
 ## Overview
 
-A Task Management App built with TypeScript and NestJS.
+A Task Management App built with TypeScript, NestJS, and Postgres.
+Frontend provided by course and developed with React and MobX.
 
 ## Features
 
@@ -23,6 +24,14 @@ A Task Management App built with TypeScript and NestJS.
 4. Run the app with `npm run start`.
 
 ## Usage
+
+1. [Install docker](https://docs.docker.com/get-docker/)
+2. [Install pgadmin](https://www.pgadmin.org/download/)
+3. Check installation:
+```bash
+docker --version
+</path/to/pgadminExecutable>
+```
 
 ### Create a task
 
