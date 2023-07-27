@@ -19,7 +19,7 @@ Frontend provided by course and developed with React and MobX.
 ## Installation
 
 1. Clone the repository.
-2. Install dependencies in both Frontend/ and back/ with: (you must do this for both directories)
+2. Install dependencies in both Frontend/ and back/ ( you must do this for both directories ):
    
 ```bash
 npm install
