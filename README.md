@@ -55,6 +55,7 @@ in the executable directory.
 
 
 8. Create a new server group. Name it whatever you want.
+(https://github.com/RyanLilleyman/taskManager/blob/main/readmeResources/creation.gif)
 9. Register the servers. Again, name them whatever you want.
 10. Go to connection tab.
 11. Enter in relevant details. Save.
