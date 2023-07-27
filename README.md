@@ -5,6 +5,8 @@
 A Task Management App built with TypeScript, NestJS, and Postgres.
 Frontend provided by course and developed with React and MobX.
 
+![Project Banner](https://github.com/RyanLilleyman/taskManager/blob/main/readmeResources/banner.gif)
+
 ## Features
 
 - Create, update, delete tasks
@@ -80,18 +82,42 @@ or
 yarn add
 ```
 
-#### 13. To start the server:
-   - navigate to /Backend
+#### 13. To start the development server:
+   1. Create a new file in Backend/. Name it env.stage.dev.
+   ```bash
+   touch env.stage.dev
+   ```
+   2. Open the file and enter in the relevant details.
+
+   ![env](https://github.com/RyanLilleyman/taskManager/blob/main/readmeResources/Screenshot%20from%202023-07-27%2015-08-24.png)
+
+   3. 
+   - Navigate to /Backend
    - Enter:
      
-```bash
-yarn start:dev
-```
-or 
+   ```bash
+   yarn start:dev
+   ```
+   or 
 
-```bash
-npm start:dev
-```
+   ```bash
+   npm start:dev
+   ```
+#### 14. To start the Frontend development server:
+
+   1. Navigate to  Frontend/
+   2. Enter:
+
+   ```bash
+   yarn start
+   ```
+   or
+
+   ```bash
+   npm start
+   ```
+
+#### 15. Profit!
 
 
 
