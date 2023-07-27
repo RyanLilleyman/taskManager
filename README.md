@@ -23,28 +23,16 @@ Frontend provided by course and developed with React and MobX.
 ## Installation ( local )
 
 1. Clone the repository.
-2. Install dependencies in both Frontend/ and back/ ( you must do this for both directories ):
-   
-```bash
-npm install
-```
-
-or
-
-```bash
-yarn add
-```
-
-3. [Install docker](https://docs.docker.com/get-docker/)
-5. [Install pgadmin](https://www.pgadmin.org/download/)
-6. Check installation:
+2. [Install docker](https://docs.docker.com/get-docker/)
+3. [Install pgadmin](https://www.pgadmin.org/download/)
+4. Check installation:
   
 ```bash
 docker --version
 </path/to/pgadminExecutable>
 ```
 
-7. Initialize a postgres docker container:
+5. Initialize a postgres docker container:
 
 ```bash
 sudo docker run
@@ -55,10 +43,10 @@ sudo docker run
  -d postgres
 ```
 
-8. Open pgadmin. You may need to look around your file system for the executable.
+6. Open pgadmin. You may need to look around your file system for the executable.
 Mine was in `/usr/pgadmin4/bin/`.
 
-9. Since my version is pgadmin4, I enter
+7. Since my version is pgadmin4, I enter
 
 ```bash
  ./pgadmin4
@@ -66,15 +54,29 @@ Mine was in `/usr/pgadmin4/bin/`.
 in the executable directory.
 
 
-11.  Create a new server group. Name it whatever you want.
-12.  Register the servers. Again, name them whatever you want.
-14. Go to connection tab.
-15. Enter in relevant details.
+8. Create a new server group. Name it whatever you want.
+9. Register the servers. Again, name them whatever you want.
+10. Go to connection tab.
+11. Enter in relevant details. Save.
     - Host name/address: localhost
     - Port: Mine is 5432. For you, <NativePort>
     - maintenance database: From the command above, <YourDatabaseName>
     - password: From the command above, <YourDatabasePassword>
-16. Now
+
+12. Install dependencies in both Frontend/ and back/ ( you must do this for both directories ):
+   
+```bash
+npm install
+```
+
+or
+
+```bash
+yarn add
+```
+13. 
+
+
 
 
 
