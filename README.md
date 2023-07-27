@@ -52,7 +52,7 @@ sudo docker run
 ```
 
 8. Open pgadmin. You may need to look around your file system for the executable.
-Mine was in /usr/pgadmin4/bin/.
+Mine was in `/usr/pgadmin4/bin/`.
 
 9. Since my version is pgadmin4, I enter
 
