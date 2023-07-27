@@ -50,7 +50,7 @@ sudo docker run
 ```bash
  ./pgadmin4
 ```
-in the executable directory.
+   in the executable directory.
 
 
 8. Create a new server group. Name it whatever you want.
