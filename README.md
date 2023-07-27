@@ -19,7 +19,7 @@ Frontend provided by course and developed with React and MobX.
 ## Installation
 
 1. Clone the repository.
-2. Install dependencies in both Frontend or back with
+2. Install dependencies in both Frontend/ and back/ with: (you must do this for both directories)
 ```bash
 npm install
 ```
@@ -34,6 +34,11 @@ yarn add
 docker --version
 </path/to/pgadminExecutable>
 ```
+7. Initialize a postgres docker container:
+```bash
+sudo docker run --name <YourContainerNameHere> -p <NativePort>:<MappedPort> -e POSTGRES_PASSWORD=<YourDatabasePasswordHere> -d postgres
+```
+8. Open pgadmin. You may need to look around your file system for the executable. 
 
 
 ### Create a task
