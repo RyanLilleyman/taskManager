@@ -22,10 +22,10 @@ Frontend provided by course and developed with React and MobX.
 
 ## Installation ( local )
 
-1. Clone the repository.
-2. [Install docker](https://docs.docker.com/get-docker/)
-3. [Install pgadmin](https://www.pgadmin.org/download/)
-4. Check installation:
+#### 1. Clone the repository.
+#### 2. [Install docker](https://docs.docker.com/get-docker/)
+#### 3. [Install pgadmin](https://www.pgadmin.org/download/)
+#### 4. Check installation:
   
 ```bash
 docker --version
