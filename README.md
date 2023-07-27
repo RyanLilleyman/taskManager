@@ -64,6 +64,7 @@ sudo docker run
     - maintenance database: From the command above, <YourDatabaseName>
     - password: From the command above, <YourDatabasePassword>
  <br>
+ 
 ![Connection](https://github.com/RyanLilleyman/taskManager/blob/main/readmeResources/connect.gif)
 
 12. Install dependencies in both Frontend/ and Backend/ **( you must do this for both directories )**:
