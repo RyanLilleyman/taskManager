@@ -52,7 +52,7 @@ export class TasksService {
       query.andWhere('task.status = :status', { status });
     }
 
-    if (search) {
+    if (search && search.trim().length > 0) {
       query.andWhere(
         'task.title LIKE :search OR task.description LIKE :search',
         { search: `%${search}%` },
@@ -62,6 +62,7 @@ export class TasksService {
     const found = await query.getMany();
     return found;
   }
+
 
   async deleteTask(id: string, user: User): Promise<void> {
     const task = await this.getTaskById(id, user);

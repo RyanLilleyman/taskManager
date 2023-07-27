@@ -10,27 +10,33 @@ export default class BaseHttpService {
 
   async get(endpoint, options = {}) {
     Object.assign(options, this._getCommonOptions());
-    return axios.get(`${this.BASE_URL}/${endpoint}`, options)
+    const { data } = await axios.get(`${this.BASE_URL}/${endpoint}`, options)
       .catch(error => this._handleHttpError(error));
+    return data;
   }
+  
 
   async post(endpoint, data = {}, options = {}) {
     Object.assign(options, this._getCommonOptions());
-    return axios.post(`${this.BASE_URL}/${endpoint}`, data, options)
+    const { data: responseData } = await axios.post(`${this.BASE_URL}/${endpoint}`, data, options)
       .catch(error => this._handleHttpError(error));  
+    return responseData;
   }
-
+  
   async delete(endpoint, options = {}) {
     Object.assign(options, this._getCommonOptions());
-    return axios.delete(`${this.BASE_URL}/${endpoint}`, options)
+    const { data } = await axios.delete(`${this.BASE_URL}/${endpoint}`, options)
       .catch(error => this._handleHttpError(error));     
+    return data;
   }
-
+  
   async patch(endpoint, data = {}, options = {}) {
     Object.assign(options, this._getCommonOptions());
-    return axios.patch(`${this.BASE_URL}/${endpoint}`, data, options)
+    const { data: responseData } = await axios.patch(`${this.BASE_URL}/${endpoint}`, data, options)
       .catch(error => this._handleHttpError(error));   
+    return responseData;
   }
+  
 
   _handleHttpError(error) {
     const { statusCode } = error.response.data;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Button, TextField } from '@material-ui/core';
+import { Button, TextField, InputAdornment } from '@material-ui/core';
+import { Visibility, VisibilityOff } from '@material-ui/icons';
 import styled from 'styled-components';
 import './SignUpPage.scss';
 import { inject, observer } from 'mobx-react';
@@ -25,6 +26,7 @@ const FormField = styled(TextField)`
 const SignUpPage = inject('userStore')(observer((props) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false); // State to control visibility of the password
   const [errorMessage, setErrorMessage] = useState(null);
 
   const navigate = useNavigate();
@@ -37,6 +39,10 @@ const SignUpPage = inject('userStore')(observer((props) => {
       const errMsg = error.response.data.message;
       setErrorMessage(errMsg);
     }
+  };
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -62,12 +68,21 @@ const SignUpPage = inject('userStore')(observer((props) => {
             label="Password"
             margin="dense"
             variant="outlined"
-            type="password"
+            type={showPassword ? 'text' : 'password'} // Show password in plain text if showPassword is true
             onChange={e => setPassword(e.target.value)}
+            InputProps={{ // Adding the show/hide password button
+              endAdornment: (
+                <InputAdornment position="end">
+                  <Button onClick={handleTogglePassword}>
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </Button>
+                </InputAdornment>
+              ),
+            }}
           />
         </div>
         <p>
-          Passwords must contain at least 1 upper case letter, 1 lower case letter and one number OR special charracter.
+          Passwords must contain at least 1 upper case letter, 1 lower case letter, and one number OR special character.
         </p>
         <hr/>
         <div>

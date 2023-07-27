@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Grid, FormControl, Select, MenuItem, TextField, InputAdornment } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import styled from 'styled-components';
@@ -18,31 +18,35 @@ const ControlContainer = styled.div`
 
 const TasksFilters = inject('tasksStore')((props) => {
   const filters$ = useMemo(() => new Subject(), []);
-  const [status, setStatus] = useState(props.tasksStore.filters.status);
-  const [search, setSearch] = useState(props.tasksStore.filters.search);
+  const [status, setStatus] = useState(props.tasksStore.filters.status || ''); // Use empty string as default
+  const [search, setSearch] = useState(props.tasksStore.filters.search || ''); // Use empty string as default
 
   useEffect(() => {
     const subscription = filters$
       .pipe(debounceTime(500))
       .subscribe(filters => {
-        props.tasksStore.updateFilters(filters);
+        props.tasksStore.setFilters(filters);
       });
 
     return () => subscription.unsubscribe();
   }, [props.tasksStore, filters$]);
 
-  const syncFilters = () => {
-    filters$.next({ status, search });
-  }
+  const syncFilters = useCallback(() => {
+    const filters = { status, search };
+    filters$.next(filters);
+    props.tasksStore.fetchTasksWithFilters(filters);
+  }, [status, search, filters$, props.tasksStore]);
+
+  useEffect(() => {
+    syncFilters();
+  }, [status, search, syncFilters]); // Include syncFilters in the dependencies array here
 
   const handleStatusFilterChange = (e) => {
     setStatus(e.target.value);
-    syncFilters();
   };
 
   const handleSearchTermChange = (e) => {
     setSearch(e.target.value);
-    syncFilters();
   };
 
   return (

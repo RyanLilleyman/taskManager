@@ -30,13 +30,15 @@ const CreateTaskPage = inject('tasksStore')(observer((props) => {
 
   const handleSubmitTask = async () => {
     try {
-      await props.tasksStore.createTask(title, description);
+      console.log('Task info:', title, description); // add this line
+      await props.tasksStore.createTask({title, description});
       navigate('/tasks');
     } catch (error) {
-      const errorMessage = error.response.data.message;
+      const errorMessage = error.response?.data?.message || error.message;
       setErrorMessage(errorMessage);
     }
   };
+  
 
   return (
     <FormWrapper>
@@ -60,7 +62,7 @@ const CreateTaskPage = inject('tasksStore')(observer((props) => {
             label="Description"
             placeholder="Description"
             multiline
-            rows="8"
+            minRows="8"
             margin="normal"
             variant="outlined"
             onChange={e => setDescription(e.target.value)}

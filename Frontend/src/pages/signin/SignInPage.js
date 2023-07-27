@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Button, TextField } from '@material-ui/core';
+import { Button, TextField, InputAdornment } from '@material-ui/core';
+import { Visibility, VisibilityOff } from '@material-ui/icons';
 import styled from 'styled-components';
 import './SignInPage.scss';
 import { inject, observer } from 'mobx-react';
@@ -25,6 +26,7 @@ const FormField = styled(TextField)`
 const SignInPage = inject('userStore')(observer((props) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false); // State to control visibility of the password
   const [errorMessage, setErrorMessage] = useState(null);
 
   const navigate = useNavigate();
@@ -43,6 +45,10 @@ const SignInPage = inject('userStore')(observer((props) => {
 
   const goToSignUp = () => {
     navigate('/signup');
+  };
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -68,8 +74,17 @@ const SignInPage = inject('userStore')(observer((props) => {
             label="Password"
             margin="dense"
             variant="outlined"
-            type="password"
+            type={showPassword ? 'text' : 'password'} // Show password in plain text if showPassword is true
             onChange={e => setPassword(e.target.value)}
+            InputProps={{ // Adding the show/hide password button
+              endAdornment: (
+                <InputAdornment position="end">
+                  <Button onClick={handleTogglePassword}>
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </Button>
+                </InputAdornment>
+              ),
+            }}
           />
         </div>
         <hr/>
