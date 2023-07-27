@@ -1,7 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { BadRequestException } from '@nestjs/common';
 import { TaskStatus } from './task.model';
-import { v4 as uuid } from 'uuid';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
 import { UpdateTaskStatusDto } from './dto/update-task-status.dto';
@@ -62,7 +61,6 @@ export class TasksService {
     const found = await query.getMany();
     return found;
   }
-
 
   async deleteTask(id: string, user: User): Promise<void> {
     const task = await this.getTaskById(id, user);
