@@ -58,7 +58,7 @@ To display running docker containers:
 ```bash
 sudo docker container ls
 ```
-If all docker containers are stopped, you can delete them with: **THIS WILL GET RID OF ALL DOCKER CONTAINERS NOT CURRENT ACTIVE. BE CAREFUL!**
+If all docker containers are stopped, you can delete them with: **THIS WILL GET RID OF ALL DOCKER CONTAINERS NOT CURRENTLY ACTIVE. BE CAREFUL!**
 ```bash
 sudo docker system prune
 ```
