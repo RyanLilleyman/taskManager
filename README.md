@@ -63,7 +63,7 @@ in the executable directory.
     - maintenance database: From the command above, <YourDatabaseName>
     - password: From the command above, <YourDatabasePassword>
 
-12. Install dependencies in both Frontend/ and back/ **( you must do this for both directories )**:
+12. Install dependencies in both Frontend/ and Backend/ **( you must do this for both directories )**:
    
 ```bash
 npm install
