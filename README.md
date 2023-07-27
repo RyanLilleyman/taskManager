@@ -20,21 +20,28 @@ Frontend provided by course and developed with React and MobX.
 
 1. Clone the repository.
 2. Install dependencies in both Frontend/ and back/ with: (you must do this for both directories)
+   
 ```bash
 npm install
 ```
+
 or
+
 ```bash
 yarn add
 ```
-4. [Install docker](https://docs.docker.com/get-docker/)
+
+3. [Install docker](https://docs.docker.com/get-docker/)
 5. [Install pgadmin](https://www.pgadmin.org/download/)
 6. Check installation:
+  
 ```bash
 docker --version
 </path/to/pgadminExecutable>
 ```
+
 7. Initialize a postgres docker container:
+
 ```bash
 sudo docker run
  --name <YourContainerNameHere>
@@ -43,19 +50,26 @@ sudo docker run
  -e POSTGRES_DB=<YourDatabaseNameHere>
  -d postgres
 ```
+
 8. Open pgadmin. You may need to look around your file system for the executable.
 Mine was in /usr/pgadmin4/bin/.
 
-9. My version is pgadmin4. Once in the executable directory, enter:
-```bash ./pgadmin4 ```
-10.  Create a new server group.
-11. Enter a name for the database. (This will used later in the environment variables)
-12. Go to connection tab.
-13. Enter in relevant details.
+9. Since my version is pgadmin4, I enter
+
+```bash
+ ./pgadmin4
+```
+in the executable directory.
+
+
+11.  Create a new server group.
+12. Enter a name for the database. (This will used later in the environment variables)
+13. Go to connection tab.
+14. Enter in relevant details.
     - Host name/address: localhost
     - Port: Mine is 5432.
     - password: From the command above, postgres
-14. Now
+15. Now
 
 
 
