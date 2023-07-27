@@ -36,21 +36,26 @@ docker --version
 ```
 7. Initialize a postgres docker container:
 ```bash
-sudo docker run --name <YourContainerNameHere>
+sudo docker run
+ --name <YourContainerNameHere>
  -p <NativePort>:<MappedPort>
  -e POSTGRES_PASSWORD=<YourDatabasePasswordHere>
  -e POSTGRES_DB=<YourDatabaseNameHere>
  -d postgres
 ```
 8. Open pgadmin. You may need to look around your file system for the executable.
-9. Create a new server group.
-10. Enter a name for the database. (This will used later in the environment variables)
-11. Go to connection tab.
-12. Enter in relevant details.
+Mine was in /usr/pgadmin4/bin/.
+
+9. My version is pgadmin4. Once in the executable directory, enter:
+```bash ./pgadmin4 ```
+10.  Create a new server group.
+11. Enter a name for the database. (This will used later in the environment variables)
+12. Go to connection tab.
+13. Enter in relevant details.
     - Host name/address: localhost
     - Port: Mine is 5432.
     - password: From the command above, postgres
-13. Now
+14. Now
 
 
 
