@@ -14,9 +14,13 @@ Frontend provided by course and developed with React and MobX.
 
 - TypeScript
 - NestJS
-- Database (PostgreSQL, MongoDB, etc.)
+- Database ( PostgreSQL )
 
-## Installation
+### Course Credit
+   - React
+   - MobX
+
+## Installation ( local )
 
 1. Clone the repository.
 2. Install dependencies in both Frontend/ and back/ ( you must do this for both directories ):
@@ -62,28 +66,21 @@ Mine was in `/usr/pgadmin4/bin/`.
 in the executable directory.
 
 
-11.  Create a new server group.
-12. Enter a name for the database. (This will used later in the environment variables)
-13. Go to connection tab.
-14. Enter in relevant details.
+11.  Create a new server group. Name it whatever you want.
+12.  Register the servers. Again, name them whatever you want.
+14. Go to connection tab.
+15. Enter in relevant details.
     - Host name/address: localhost
-    - Port: Mine is 5432.
-    - password: From the command above, postgres
-15. Now
+    - Port: Mine is 5432. For you, <NativePort>
+    - maintenance database: From the command above, <YourDatabaseName>
+    - password: From the command above, <YourDatabasePassword>
+16. Now
 
 
 
-### Create a task
 
-POST to `/tasks` with task details in the request body.
 
-### Mark a task as complete
 
-PUT to `/tasks/:id` with the updated task details.
-
-### Delete a task
-
-DELETE to `/tasks/:id`.
 
 ## Contributing
 
