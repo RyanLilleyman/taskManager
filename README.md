@@ -57,7 +57,7 @@ sudo docker run
 ![Creation](https://github.com/RyanLilleyman/taskManager/blob/main/readmeResources/creation.gif)
 9. Register the servers. Again, name them whatever you want.
 ![Registration](https://github.com/RyanLilleyman/taskManager/blob/main/readmeResources/registration.gif)
-10. Go to connection tab.
+10. Go to connection tab.  
 11. Enter in relevant details. Save.
     - Host name/address: localhost
     - Port: Mine is 5432. For you, <NativePort>
