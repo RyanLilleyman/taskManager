@@ -45,6 +45,24 @@ sudo docker run
  -d postgres
 ```
 
+##### Important Commands:
+To stop a docker container:
+``bash
+sudo docker container stop <containerIDorName>
+```
+To start a docker container:
+```bash
+sudo docker container start <containerIDorName>
+```
+To display running docker containers:
+```bash
+sudo docker container ls
+```
+If all docker containers are stopped, you can delete them with: **THIS WILL GET RID OF ALL DOCKER CONTAINERS NOT CURRENT ACTIVE. BE CAREFUL!**
+```bash
+sudo docker system prune
+```
+
 #### 6. Open pgadmin.
  You may need to look around your file system for the executable. <br> Mine was in `/usr/pgadmin4/bin/`.
 
