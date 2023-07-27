@@ -22,17 +22,17 @@ Frontend provided by course and developed with React and MobX.
 
 ## Installation ( local )
 
-1. Clone the repository.
-2. [Install docker](https://docs.docker.com/get-docker/)
-3. [Install pgadmin](https://www.pgadmin.org/download/)
-4. Check installation:
+#### 1. Clone the repository.
+#### 2. [Install docker](https://docs.docker.com/get-docker/)
+#### 3. [Install pgadmin](https://www.pgadmin.org/download/)
+#### 4. Check installation:
   
 ```bash
 docker --version
 </path/to/pgadminExecutable>
 ```
 
-5. Initialize a postgres docker container:
+#### 5. Initialize a postgres docker container:
 
 ```bash
 sudo docker run
@@ -43,27 +43,32 @@ sudo docker run
  -d postgres
 ```
 
-6. Open pgadmin. You may need to look around your file system for the executable.
-Mine was in `/usr/pgadmin4/bin/`.
+#### 6. Open pgadmin.
+ You may need to look around your file system for the executable. <br> Mine was in `/usr/pgadmin4/bin/`.
 
-7. Since my version is pgadmin4, I enter
+#### 7. Since my version is pgadmin4, I enter
 
 ```bash
  ./pgadmin4
 ```
-in the executable directory.
+   in the executable directory.
 
 
-8. Create a new server group. Name it whatever you want.
-9. Register the servers. Again, name them whatever you want.
-10. Go to connection tab.
-11. Enter in relevant details. Save.
+#### 8. Create a new server group. Name it whatever you want.  
+![Creation](https://github.com/RyanLilleyman/taskManager/blob/main/readmeResources/creation.gif)
+#### 9. Register the servers. Again, name them whatever you want.  
+![Registration](https://github.com/RyanLilleyman/taskManager/blob/main/readmeResources/registration.gif)
+#### 10. Go to connection tab.  
+#### 11. Enter in relevant details. Save.
     - Host name/address: localhost
     - Port: Mine is 5432. For you, <NativePort>
     - maintenance database: From the command above, <YourDatabaseName>
     - password: From the command above, <YourDatabasePassword>
+ <br>
+ 
+![Connection](https://github.com/RyanLilleyman/taskManager/blob/main/readmeResources/connect.gif)
 
-12. Install dependencies in both Frontend/ and Backend/ **( you must do this for both directories )**:
+#### 12. Install dependencies in both Frontend/ and Backend/ **( you must do this for both directories )**:
    
 ```bash
 npm install
@@ -74,7 +79,20 @@ or
 ```bash
 yarn add
 ```
-13. 
+
+#### 13. To start the server:
+   - navigate to /Backend
+   - Enter:
+     
+```bash
+yarn start:dev
+```
+or 
+
+```bash
+npm start:dev
+```
+
 
 
 
